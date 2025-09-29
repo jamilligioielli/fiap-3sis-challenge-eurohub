@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Modernização TI Eurofarma",
+      "description": "Projeto de atualização completa da infraestrutura tecnológica da empresa",
+      "objective": "Modernizar sistemas legados e implementar novas tecnologias para melhorar a eficiência operacional",
+      "category": "Tecnologia",
+      "status": "Em andamento",
+      "priority": "Alta",
+      "cost": 125000,
+      "budget": 150000,
+      "progress": 68,
+      "createdDate": "2024-01-15",
+      "deliveryDate": "2024-06-30",
+      "lastUpdate": "2024-03-15",
+      "members": [
+        {
+          "id": 1,
+          "name": "João Silva",
+          "role": "Gerente de Projeto",
+          "avatar": "JS",
+          "email": "joao.silva@eurofarma.com",
+          "department": "TI"
+        }
+      ],
+      "activities": [
+        {
+          "id": 1,
+          "description": "Projeto criado e equipe definida",
+          "date": "2024-01-15",
+          "user": "João Silva",
+          "type": "created"
+        }
+      ],
+      "tags": ["modernização", "infraestrutura", "TI"]
+    }
+  ],
+  "members": [
+    {
+      "id": 1,
+      "name": "João Silva",
+      "role": "Gerente de Projeto Senior",
+      "avatar": "JS",
+      "email": "joao.silva@eurofarma.com",
+      "department": "Tecnologia da Informação",
+      "isActive": true
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Tecnologia",
+      "color": "#0066CC",
+      "icon": "pi pi-desktop",
+      "description": "Projetos relacionados a TI e sistemas",
+      "isActive": true
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+<div class="project-details-container" *ngIf="project(); else loadingState">
+  <div class="project-header">
+    <div class="header-content">
+      <div class="project-info">
+        <h1 class="project-title">{{ project()!.name }}</h1>
+        <p class="project-description">{{ project()!.description }}</p>
+        <div class="project-meta">
+          <p-tag [value]="project()!.category" [style]="getCategoryStyle()"></p-tag>
+          <p-badge [value]="project()!.status" [class]="getBadgeClass()"></p-badge>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- <p-button label="Editar" icon="pi pi-pencil" [outlined]="true" (click)="onEdit()"></p-button> -->
+      <p-button label="Excluir" icon="pi pi-trash" severity="danger" [outlined]="true" (click)="onDelete()"></p-button>
+    </div>
+  </div>
+
+  <p-card class="progress-card" *ngIf="project()!.progress !== undefined">
+    <div class="progress-content">
+      <div class="progress-header">
+        <h3 class="progress-title">Progresso do Projeto</h3>
+        <span class="progress-percentage">{{ project()!.progress }}%</span>
+      </div>
+      <p-progressBar [value]="project()!.progress" [style]="{'height': '12px'}"></p-progressBar>
+    </div>
+  </p-card>
+
+  <div class="details-grid">
+    <p-card class="details-card">
+      <h4 class="card-title">Informações Gerais</h4>
+      <div class="detail-list">
+        <div class="detail-item">
+          <span class="detail-label">Nome:</span>
+          <span class="detail-value">{{ project()!.name }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Categoria:</span>
+          <span class="detail-value">{{ project()!.category }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Status:</span>
+          <p-badge [value]="project()!.status" [class]="getBadgeClass()"></p-badge>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Criado em:</span>
+          <span class="detail-value">{{ formatDate(project()!.createdDate) }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Entrega:</span>
+          <span class="detail-value">{{ formatDate(project()!.deliveryDate) }}</span>
+        </div>
+        <div class="detail-item" *ngIf="project()!.budget">
+          <span class="detail-label">Orçamento:</span>
+          <span class="detail-value">{{ formatCurrency(project()!.budget ?? 0) }}</span>
+        </div>
+      </div>
+    </p-card>
+
+    <p-card class="team-card" *ngIf="project()!.members!.length > 0">
+      <h4 class="card-title">Equipe do Projeto</h4>
+      <div class="team-list">
+        <div *ngFor="let member of project()!.members" class="member-item">
+          <p-avatar [label]="member.avatar" shape="circle"
+            [style]="{'background-color': '#0066CC', 'color': '#ffffff'}"></p-avatar>
+          <div class="member-info">
+            <div class="member-name">{{ member.name }}</div>
+            <div class="member-role">{{ member.role }}</div>
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+
+  <p-card class="objective-card" *ngIf="project()!.objective">
+    <h4 class="card-title">Objetivo do Projeto</h4>
+    <p class="objective-text">{{ project()!.objective }}</p>
+  </p-card>
+</div>
+
+<ng-template #loadingState>
+  <div class="loading-container">
+    <p-skeleton height="3rem" class="mb-3"></p-skeleton>
+    <p-skeleton height="2rem" width="60%" class="mb-4"></p-skeleton>
+    <p-skeleton height="200px" class="mb-3"></p-skeleton>
+    <p-skeleton height="300px"></p-skeleton>
+  </div>
+</ng-template>
+
+<p-confirmDialog></p-confirmDialog>

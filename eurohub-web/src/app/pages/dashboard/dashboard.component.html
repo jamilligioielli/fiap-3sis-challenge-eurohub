@@ -1,0 +1,71 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <div class="header-content">
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-subtitle">Visão geral dos seus projetos</p>
+    </div>
+    <p-button label="Novo Projeto" icon="pi pi-plus" routerLink="/projeto/novo"></p-button>
+  </div>
+
+  <div class="stats-grid">
+    <p-card class="stat-card total">
+      <div class="stat-content">
+        <div class="stat-info">
+          <div class="stat-number">{{ projectService.stats().total }}</div>
+          <div class="stat-label">Total de Projetos</div>
+        </div>
+        <i class="pi pi-folder stat-icon"></i>
+      </div>
+    </p-card>
+
+    <p-card class="stat-card active">
+      <div class="stat-content">
+        <div class="stat-info">
+          <div class="stat-number">{{ projectService.stats().active }}</div>
+          <div class="stat-label">Em Andamento</div>
+        </div>
+        <i class="pi pi-play-circle stat-icon"></i>
+      </div>
+    </p-card>
+
+    <p-card class="stat-card completed">
+      <div class="stat-content">
+        <div class="stat-info">
+          <div class="stat-number">{{ projectService.stats().completed }}</div>
+          <div class="stat-label">Concluídos</div>
+        </div>
+        <i class="pi pi-check-circle stat-icon"></i>
+      </div>
+    </p-card>
+
+    <p-card class="stat-card paused">
+      <div class="stat-content">
+        <div class="stat-info">
+          <div class="stat-number">{{ projectService.stats().paused }}</div>
+          <div class="stat-label">Pausados</div>
+        </div>
+        <i class="pi pi-pause-circle stat-icon"></i>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Projetos Recentes</h2>
+      <p-button label="Ver Todos" [text]="true" routerLink="/projetos"></p-button>
+    </div>
+
+    <div class="projects-grid" *ngIf="projectService.recentProjects().length > 0; else emptyState">
+      <app-project-card *ngFor="let project of projectService.recentProjects()" [project]="project"></app-project-card>
+    </div>
+
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <i class="pi pi-folder-open empty-icon"></i>
+        <h3>Nenhum projeto encontrado</h3>
+        <p>Comece criando seu primeiro projeto</p>
+        <p-button label="Criar Projeto" icon="pi pi-plus" routerLink="/projeto/novo"></p-button>
+      </div>
+    </ng-template>
+  </div>
+</div>

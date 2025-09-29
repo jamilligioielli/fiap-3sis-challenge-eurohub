@@ -1,0 +1,62 @@
+<div class="create-project-container">
+  <div class="page-header">
+    <h1 class="page-title">Novo Projeto</h1>
+    <p class="page-subtitle">Crie um novo projeto para sua equipe</p>
+  </div>
+
+  <p-card class="form-card">
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="form-section">
+        <h3 class="section-title">Informações Básicas</h3>
+
+        <div class="form-field">
+          <label for="name" class="field-label">Nome do Projeto *</label>
+          <input id="name" type="text" pInputText formControlName="name" placeholder="Dê um nome para o seu projeto"
+            class="w-full">
+          <small class="field-error" *ngIf="projectForm.get('name')?.invalid && projectForm.get('name')?.touched">Nome
+            do projeto é obrigatório</small>
+        </div>
+
+        <div class="form-field">
+          <label for="description" class="field-label">Descrição</label>
+          <textarea id="description" pInputTextarea formControlName="description"
+            placeholder="Fale mais sobre seu projeto" rows="3" class="w-full"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="objective" class="field-label">Objetivo *</label>
+          <textarea id="objective" pInputTextarea formControlName="objective"
+            placeholder="Resuma o objetivo desse projeto" rows="2" class="w-full"></textarea>
+          <small class="field-error"
+            *ngIf="projectForm.get('objective')?.invalid && projectForm.get('objective')?.touched">Objetivo do projeto é
+            obrigatório</small>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="category" class="field-label">Categoria</label>
+            <p-dropdown id="category" [options]="categoryOptions()" formControlName="category"
+              placeholder="Selecionar categoria" optionLabel="label" optionValue="value" class="w-full"></p-dropdown>
+          </div>
+
+          <div class="form-field">
+            <label for="deliveryDate" class="field-label">Previsão de Entrega</label>
+            <p-calendar id="deliveryDate" formControlName="deliveryDate" dateFormat="dd/mm/yy" [showIcon]="true"
+              placeholder="dd/mm/yyyy" class="w-full"></p-calendar>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="budget" class="field-label">Orçamento (R$)</label>
+          <input id="budget" type="number" pInputText formControlName="budget" placeholder="0,00" class="w-full">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <p-button label="Cancelar" [outlined]="true" (click)="onCancel()" type="button"></p-button>
+        <p-button label="Criar Projeto" icon="pi pi-check" type="submit" [loading]="loading()"
+          [disabled]="projectForm.invalid"></p-button>
+      </div>
+    </form>
+  </p-card>
+</div>

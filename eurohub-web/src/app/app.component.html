@@ -1,0 +1,8 @@
+<div class="layout-wrapper">
+  <app-header (sidebarToggle)="toggleSidebar()" (search)="onSearch($event)"></app-header>
+  <app-sidebar [visible]="sidebarVisible()" (visibilityChange)="onSidebarVisibilityChange($event)"></app-sidebar>
+  <div class="layout-main" [class.sidebar-active]="sidebarVisible()">
+    <main class="main-content"><router-outlet></router-outlet></main>
+  </div>
+  <p-toast position="top-right"></p-toast>
+</div>

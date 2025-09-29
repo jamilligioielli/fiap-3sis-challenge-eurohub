@@ -1,0 +1,27 @@
+.layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.layout-main {
+  flex: 1;
+  margin-left: 0;
+  transition: margin-left 300ms;
+}
+.layout-main.sidebar-active {
+  margin-left: 280px;
+}
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  margin-top: 70px;
+}
+@media (max-width: 768px) {
+  .layout-main.sidebar-active {
+    margin-left: 0;
+  }
+  .main-content {
+    padding: 1rem;
+    margin-top: 60px;
+  }
+}

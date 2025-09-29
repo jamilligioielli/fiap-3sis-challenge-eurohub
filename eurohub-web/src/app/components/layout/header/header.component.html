@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="header-content">
+    <div class="header-left">
+      <p-button (click)="toggleSidebar()" icon="pi pi-bars" [text]="true" class="sidebar-toggle"></p-button>
+      <div class="logo" routerLink="/dashboard">EuroHub</div>
+    </div>
+    <div class="header-center">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText placeholder="Buscar projetos..." [(ngModel)]="searchQuery"
+          (keyup.enter)="onSearch()" class="search-input">
+      </span>
+    </div>
+    <div class="header-right">
+      <p-avatar label="LW" shape="circle" [style]="{'background-color': '#0066CC', 'color': '#ffffff'}"></p-avatar>
+    </div>
+  </div>
+</header>

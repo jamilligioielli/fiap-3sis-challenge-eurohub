@@ -1,0 +1,32 @@
+<p-card class="project-card">
+  <div class="card-header">
+    <div class="project-info">
+      <h3 class="project-name" [routerLink]="['/projeto', project.id]">{{ project.name }}</h3>
+      <p class="project-description">{{ project.description }}</p>
+    </div>
+    <p-button icon="pi pi-eye" [text]="true" [routerLink]="['/projeto', project.id]"></p-button>
+  </div>
+
+  <div class="project-meta">
+    <p-tag [value]="project.category" [style]="getCategoryStyle()"></p-tag>
+    <p-badge [value]="project.status" [class]="getBadgeClass()"></p-badge>
+  </div>
+
+  <div class="progress-section" *ngIf="project.progress !== undefined">
+    <div class="progress-info">
+      <span class="progress-label">Progresso</span>
+      <span class="progress-value">{{ project.progress }}%</span>
+    </div>
+    <p-progressBar [value]="project.progress" [style]="{'height': '6px'}"></p-progressBar>
+  </div>
+
+  <div class="project-footer">
+    <div class="team-avatars">
+      <p-avatar *ngFor="let member of project.members.slice(0, 3)" [label]="member.avatar" shape="circle" size="normal"
+        [style]="{'background-color': '#0066CC', 'color': '#ffffff'}"></p-avatar>
+      <p-avatar *ngIf="project.members.length > 3" [label]="'+' + (project.members.length - 3)" shape="circle"
+        size="normal" [style]="{'background-color': '#6c757d', 'color': '#ffffff'}"></p-avatar>
+    </div>
+    <span class="update-time">{{ formatDate(project.lastUpdate) }}</span>
+  </div>
+</p-card>

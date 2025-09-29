@@ -1,0 +1,16 @@
+<p-sidebar [(visible)]="sidebarVisible" (onHide)="onHide()" position="left" [modal]="false"
+  [style]="{'width': '280px'}">
+  <div class="sidebar-content">
+    <nav class="navigation">
+      <ul class="nav-list">
+        <li class="nav-item" *ngFor="let item of menuItems">
+          <a [routerLink]="item.route" routerLinkActive="active" class="nav-link" pRipple>
+            <i [class]="item.icon" class="nav-icon"></i>
+            <span class="nav-label">{{ item.label }}</span>
+            <span *ngIf="item.badge" class="nav-badge">{{ item.badge }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</p-sidebar>
