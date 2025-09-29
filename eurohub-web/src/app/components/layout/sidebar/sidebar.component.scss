@@ -1,0 +1,45 @@
+.sidebar-content {
+  height: 100%;
+  padding: 1rem 0;
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: #6c757d;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-link:hover {
+  background-color: #f8f9fa;
+  color: #0066cc;
+}
+.nav-link.active {
+  background-color: rgba(0, 102, 204, 0.1);
+  color: #0066cc;
+}
+.nav-icon {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+.nav-label {
+  flex: 1;
+  font-weight: 500;
+}
+.nav-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  background-color: #0066cc;
+  color: #ffffff;
+}
+::ng-deep .p-sidebar {
+  position: fixed !important;
+  top: 70px;
+  height: calc(100vh - 70px);
+}

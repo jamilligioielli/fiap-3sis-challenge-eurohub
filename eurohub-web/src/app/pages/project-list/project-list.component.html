@@ -1,0 +1,51 @@
+<div class="project-list-container">
+  <div class="page-header">
+    <div class="header-content">
+      <h1 class="page-title">Meus Projetos</h1>
+      <p class="page-subtitle">Gerencie todos os seus projetos</p>
+    </div>
+    <p-button label="Novo Projeto" icon="pi pi-plus" routerLink="/projeto/novo"></p-button>
+  </div>
+
+  <div class="filters-section">
+    <div class="search-container">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText placeholder="Buscar projetos..." [(ngModel)]="searchQuery" (input)="onFilter()"
+          class="search-input">
+      </span>
+    </div>
+
+    <div class="filter-controls">
+      <p-dropdown [options]="statusOptions" [(ngModel)]="selectedStatus" placeholder="Status" (onChange)="onFilter()"
+        class="filter-dropdown" [showClear]="true"></p-dropdown>
+      <p-dropdown [options]="categoryOptions" [(ngModel)]="selectedCategory" placeholder="Categoria"
+        (onChange)="onFilter()" class="filter-dropdown" [showClear]="true"></p-dropdown>
+    </div>
+  </div>
+
+  <div class="projects-content">
+    <div class="projects-header">
+      <span class="results-count">{{ filteredProjects().length }} {{ filteredProjects().length === 1 ? 'projeto encontrado' :
+        'projetos encontrados' }}</span>
+    </div>
+
+    <div class="projects-grid" *ngIf="filteredProjects().length > 0; else emptyState">
+      <app-project-card *ngFor="let project of filteredProjects()" [project]="project"></app-project-card>
+    </div>
+
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <i class="pi pi-folder-open empty-icon"></i>
+        <h3>Nenhum projeto encontrado</h3>
+        <p *ngIf="hasActiveFilters()">Tente ajustar os filtros ou limpar a busca</p>
+        <p *ngIf="!hasActiveFilters()">Comece criando seu primeiro projeto</p>
+        <div class="empty-actions">
+          <p-button *ngIf="hasActiveFilters()" label="Limpar Filtros" icon="pi pi-times" [outlined]="true"
+            (click)="clearFilters()"></p-button>
+          <p-button label="Criar Projeto" icon="pi pi-plus" routerLink="/projeto/novo"></p-button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

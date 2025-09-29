@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "name": "Modernização TI",
+    "description": "Atualização da infraestrutura tecnológica",
+    "objective": "Modernizar sistemas e processos",
+    "category": "Tecnologia",
+    "status": "Em andamento",
+    "priority": "Alta",
+    "cost": 125000,
+    "budget": 150000,
+    "progress": 68,
+    "createdDate": "2024-01-15",
+    "deliveryDate": "2024-06-30",
+    "lastUpdate": "2024-03-15",
+    "members": [
+      {
+        "id": 1,
+        "name": "João Silva",
+        "role": "Gerente",
+        "avatar": "JS",
+        "email": "joao@eurofarma.com",
+        "department": "TI"
+      }
+    ],
+    "supportedBy": {
+      "id": 2,
+      "name": "Maria Santos",
+      "role": "Diretora",
+      "avatar": "MS",
+      "department": "Executivo"
+    },
+    "activities": [
+      {
+        "id": 1,
+        "description": "Projeto criado",
+        "date": "2024-01-15",
+        "user": "João Silva",
+        "type": "created"
+      }
+    ],
+    "tags": [
+      "modernização",
+      "TI"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Sistema Qualidade ISO",
+    "description": "Implementação de sistema ISO 9001",
+    "objective": "Certificação ISO para toda organização",
+    "category": "Qualidade",
+    "status": "Pausado",
+    "priority": "Média",
+    "cost": 85000,
+    "budget": 200000,
+    "progress": 32,
+    "createdDate": "2024-02-01",
+    "deliveryDate": "2024-09-30",
+    "lastUpdate": "2024-02-28",
+    "members": [
+      {
+        "id": 3,
+        "name": "Ana Costa",
+        "role": "Especialista",
+        "avatar": "AC",
+        "email": "ana@eurofarma.com",
+        "department": "Qualidade"
+      }
+    ],
+    "activities": [
+      {
+        "id": 2,
+        "description": "Projeto pausado",
+        "date": "2024-02-28",
+        "user": "Ana Costa",
+        "type": "status_changed"
+      }
+    ],
+    "tags": [
+      "ISO",
+      "qualidade"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Campanha Marketing Digital",
+    "description": "Nova estratégia de marketing online",
+    "objective": "Aumentar visibilidade da marca",
+    "category": "Marketing",
+    "status": "Concluído",
+    "priority": "Alta",
+    "cost": 75000,
+    "budget": 80000,
+    "progress": 100,
+    "createdDate": "2023-10-01",
+    "deliveryDate": "2024-01-31",
+    "lastUpdate": "2024-01-31",
+    "members": [
+      {
+        "id": 4,
+        "name": "Carlos Lima",
+        "role": "Especialista",
+        "avatar": "CL",
+        "email": "carlos@eurofarma.com",
+        "department": "Marketing"
+      }
+    ],
+    "activities": [
+      {
+        "id": 3,
+        "description": "Projeto concluído",
+        "date": "2024-01-31",
+        "user": "Carlos Lima",
+        "type": "updated"
+      }
+    ],
+    "tags": [
+      "marketing",
+      "digital"
+    ]
+  }
+]
