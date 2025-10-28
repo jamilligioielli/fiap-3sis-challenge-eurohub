@@ -1,3 +1,0 @@
-link video: https://drive.google.com/file/d/1_CK8kbHBpH1ytcPKmhKksVUS-YonT3Zl/view?usp=sharing
-
-link deploy: https://eurohub-web.vercel.app/
